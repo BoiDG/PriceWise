@@ -9,12 +9,12 @@ interface Props {
     productId: string;
 }
 
-const Modal = ({productId}: Props) => {
+const Modal = ({ productId }: Props) => {
     let [isOpen, setIsOpen] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [email, setEmail] = useState("");
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { 
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
 
@@ -101,7 +101,7 @@ const Modal = ({productId}: Props) => {
                                     </label>
                                     <div className='dialog-input_container'>
                                         <Image
-                                            src="/assets/icons/main.svg"
+                                            src="/assets/icons/mail.svg"
                                             alt="mail"
                                             width={18}
                                             height={18}
@@ -117,11 +117,10 @@ const Modal = ({productId}: Props) => {
                                             className='dialog-input'
                                         />
 
-                                        <button type="submit" className='dialog-btn'>
-                                            {isSubmitting ? 'Submitting...' : 'Track'}
-                                        </button>
-
                                     </div>
+                                    <button type="submit" className='dialog-btn'>
+                                        {isSubmitting ? 'Submitting...' : 'Track'}
+                                    </button>
                                 </form>
                             </div>
                         </Transition.Child>

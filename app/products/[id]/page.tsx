@@ -33,6 +33,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 						className="mx-auto"
 					/>
 				</div>
+
 				<div className='flex-1 flex flex-col'>
 					<div className='flex justify-between items-start gap-5 flex-wrap pb-6'>
 						<div className='flex flex-col gap-3'>
@@ -60,8 +61,6 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 								<p className='text-base font-semibold text-[#D46F77'>
 									{product.reviewsCount}
 								</p>
-
-
 							</div>
 
 							<div className='p-2 bg-white-200 rounded-10'>
@@ -120,6 +119,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 									</p>
 								</div>
 							</div>
+
 							<p className='text-sm text-black opacity-50'>
 								<span className='text-primary-green font-semibold'>93%</span> of
 								buyers have recommended this.
@@ -134,25 +134,19 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 								iconSrc="/assets/icons/price-tag.svg"
 								value={`${product.currency} ${formatNumber(product.currentPrice)}`}
 							/>
-						</div>
 
-						<div className='flex gap-5 flex-wrap'>
 							<PriceInfoCard
 								title="Average Price"
 								iconSrc="/assets/icons/chart.svg"
 								value={`${product.currency} ${formatNumber(product.averagePrice)}`}
 							/>
-						</div>
 
-						<div className='flex gap-5 flex-wrap'>
 							<PriceInfoCard
 								title="Current Price"
 								iconSrc="/assets/icons/arrow-up.svg"
 								value={`${product.currency} ${formatNumber(product.highestPrice)}`}
 							/>
-						</div>
 
-						<div className='flex gap-5 flex-wrap'>
 							<PriceInfoCard
 								title="Current Price"
 								iconSrc="/assets/icons/arrow-down.svg"
@@ -190,7 +184,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 			</div>
 
 			{similarProducts && similarProducts?.length > 0 && (
-				<div className="py-14 flex flex-col gap-2 w-full-width">
+				<div className="py-14 flex flex-col gap-2 w-full">
 					<p className="section-text">
 						Similar Products
 					</p>
@@ -200,10 +194,9 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 							<ProductCard
 								key={product._id}
 								product={product}
-							
+
 							/>
 						))}
-
 					</div>
 				</div>
 			)}
