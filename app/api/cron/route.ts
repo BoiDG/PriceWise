@@ -10,7 +10,7 @@ export const maxDuration = 300;
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-export async function GET() {
+export async function GET(request: Request) {
     try {
         connectToDB();
 
@@ -23,7 +23,7 @@ export async function GET() {
             products.map(async (currentProduct) => {
                 const scrapedProduct = await scrapeWebProduct(currentProduct.url);
 
-                if (!scrapedProduct) throw new Error("No product found");
+                if (!scrapedProduct) return;
 
                 const updatedPriceHistory = [
                     ...currentProduct.priceHistory,
@@ -65,7 +65,7 @@ export async function GET() {
         return NextResponse.json({
             message: 'Ok', data: updatedProducts
         })
-    } catch (error) {
-        throw new Error(`Error in GET: ${error}`);
+    } catch (error: any) {
+        throw new Error(`Failed to get all products: ${error.message}`);
     }
 }
