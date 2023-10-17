@@ -142,13 +142,13 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 							/>
 
 							<PriceInfoCard
-								title="Current Price"
+								title="Highest Price"
 								iconSrc="/assets/icons/arrow-up.svg"
 								value={`${product.currency} ${formatNumber(product.highestPrice)}`}
 							/>
 
 							<PriceInfoCard
-								title="Current Price"
+								title="Lowest Price"
 								iconSrc="/assets/icons/arrow-down.svg"
 								value={`${product.currency} ${formatNumber(product.lowestPrice)}`}
 							/>
@@ -177,7 +177,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 						height={22}
 					/>
 
-					<Link href="/" className="text-base text-white">
+					<Link href={product.url} className="text-base text-white">
 						Buy Now
 					</Link>
 				</button>
