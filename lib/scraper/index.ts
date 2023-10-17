@@ -81,7 +81,9 @@ export async function scrapeWebProduct(url: string) {
 		const stars =
 			$('#acrPopover') ||
 			$('a-size-base a-color-base');
-
+		
+		const review = $('#acrCustomerReviewText');
+		
 		// const category = 
 		// 	$('#wayfinding-breadcrumbs_container') || 
 		// 	$('')
@@ -96,7 +98,7 @@ export async function scrapeWebProduct(url: string) {
 			priceHistory: [],
 			discountRate: Number(discountRate),
 			category: 'category',
-			reviewsCount: 100,
+			reviewsCount: Number(review),
 			stars: Number(stars),
 			isOutOfStock: outOfStock,
 			description,
